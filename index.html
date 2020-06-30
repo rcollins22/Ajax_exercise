@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rashad's Star Wars List</title>
+        <style>
+            .hidden{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <li></li>
+    <script>
+        const pull = new XMLHttpRequest();
+        pull.onreadystatechange=()=> {
+            if(pull.readyState === 4 && pull.status === 200){
+                // console.log(pull.response)
+                charObject = JSON.parse(pull.response)
+                console.log(charObject)
+                charObject.forEach(char=>{
+                    var charInfo = document.createElement('div');
+                    var indChar = char.name
+                    charInfo.innerText= `${indChar}`
+
+                    for (d in char){
+                        var ulD = document.createElement('ul');
+
+                        ulD.className = 'hidden'
+                        ulD.innerText = `${d}: ${char[d]}`;
+                        charInfo.append(ulD)
+                    }
+                    
+
+                    
+
+                    let pushSpot = document.querySelector('li')
+                    pushSpot.append(charInfo)
+
+                    charInfo.addEventListener('Click', (event) => {
+                        eventß.classList.toggle('hidden')
+                    })
+
+                    const toggle = () =>{
+
+                    }
+
+                    // console.log(char)
+                    // for(i=0;i<char.length;i++){
+                    //     var eyeColor = document.createElement('li');
+                    //     eyeColor.innerText = descrip.value
+                    //     console.log(eyeColor)
+                    // }
+                    // char.forEßach(descrip=>{
+                     
+                    }) 
+                
+            }
+            
+
+        }
+        pull.open('GET','./starwars_names.json');
+        pull.send();
+    </script>    
+    </body>
+</html>
