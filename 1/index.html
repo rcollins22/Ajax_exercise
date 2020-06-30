@@ -5,6 +5,7 @@
         <style>
             .hidden{
                 display: none;
+                font-size: 10px;
             }
         </style>
     </head>
@@ -31,19 +32,21 @@
                     }
                     
 
-                    
+                    function hideDet() {
+                        
+                    }
 
                     let pushSpot = document.querySelector('li')
                     pushSpot.append(charInfo)
 
-                    charInfo.addEventListener('Click', (event) => {
-                        eventß.classList.toggle('hidden')
+                    
+
+                  
+                    charInfo.addEventListener('click', (event) => {
+                        charInfo.children[0].classList.toggle("hidden")
+                        charInfo.children[1].classList.toggle("hidden")
+                        charInfo.children[2].classList.toggle("hidden")
                     })
-
-                    const toggle = () =>{
-
-                    }
-
                     // console.log(char)
                     // for(i=0;i<char.length;i++){
                     //     var eyeColor = document.createElement('li');
@@ -52,12 +55,13 @@
                     // }
                     // char.forEßach(descrip=>{
                      
-                    }) 
+                }) 
                 
             }
             
 
         }
+       
         pull.open('GET','./starwars_names.json');
         pull.send();
     </script>    
